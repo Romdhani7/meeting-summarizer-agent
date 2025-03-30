@@ -1,8 +1,6 @@
-# Meeting Summarizer AI Agent
+# 🤖  Meeting Summarizer Agent
 
-# 🤖 AI-Powered Meeting Summarizer Agent
-
-![n8n Logo](https://n8n.io/favicon-32x32.png) ![Mistral Logo](https://example.com/mistral-logo.png) ![Whisper.cpp Logo](https://example.com/whisper-logo.png)
+![n8n Logo]([https://n8n.io/favicon-32x32.png](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsRhTSdAZKmzvK2LjW89xNj0ZwQrwio6cUUw&s)) ![Mistral Logo](https://www.3ds.com/assets/invest/2024-06/logo-mistral.png) ![Whisper.cpp Logo](https://miro.medium.com/v2/resize:fit:932/1*SCJBv1OX2plMgoNmcoxtcw.jpeg)
 
 Automated pipeline that converts audio meetings → text transcripts → AI summaries using cutting-edge tools.
 
@@ -13,11 +11,11 @@ Automated pipeline that converts audio meetings → text transcripts → AI summ
 - 📂 Automatic file management
 
 ## 🔧 Tools Used
-| Tool | Purpose | Logo |
-|------|---------|------|
-| **n8n** | Workflow Automation | ![n8n](https://n8n.io/favicon-32x32.png) |
-| **Whisper.cpp** | Speech-to-Text | ![Whisper](https://example.com/whisper-logo.png) |
-| **Mistral** | AI Summarization | ![Mistral](https://example.com/mistral-logo.png) |
+| Tool | Purpose |
+|------|---------|
+| **n8n** | Workflow Automation | 
+| **Whisper.cpp** | Speech-to-Text 
+| **Mistral** | AI Summarization | 
 
 ## 🛠️ Setup  
 1. Clone repo:  
