@@ -2,7 +2,7 @@
 
 Automated AI agent that processes meeting transcripts and generates summaries using n8n + Mistral.
 
-## 🌟 Features
+## Features
 - 🕒 Scheduled daily processing (12:05 PM)
 - 🎙️ Whisper.cpp audio-to-text conversion
 - 🧠 Mistral AI summarization
