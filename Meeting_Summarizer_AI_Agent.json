@@ -1,0 +1,183 @@
+{
+  "name": "Meeting Summarizer AI Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 12,
+              "triggerAtMinute": 5
+            },
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f2b1931b-333e-42d2-ba45-c4afed62db61",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "fileSelector": "C:/Users/Amina/Downloads/meetings/*",
+        "options": {
+          "fileExtension": "mp3,wav"
+        }
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "56a69096-aaef-4459-8b82-ac0bdf657c20",
+      "name": "Read/Write Files from Disk",
+      "alwaysOutputData": true,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "command": "\"C:\\Users\\Amina\\Downloads\\whisper.cpp\\build\\bin\\Release\\whisper-cli.exe\" -m \"C:\\Users\\Amina\\Downloads\\whisper.cpp\\models\\ggml-base.en.bin\" -l en -otxt \"C:\\Users\\Amina\\Downloads\\meetings\\input.mp3\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        440,
+        0
+      ],
+      "id": "3b0fee38-6368-4b02-a29a-4e50eda63dc1",
+      "name": "Execute Command",
+      "alwaysOutputData": true,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:11434/api/generate",
+        "sendHeaders": true,
+        "specifyHeaders": "json",
+        "jsonHeaders": "{  \n  \"Content-Type\": \"application/json\"  \n}  ",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n     \"model\": \"mistral:latest\",\n    \"prompt\": \"Summarize this meeting transcript: {{= $json.input_data }}\",\n    \"stream\": false\n  }",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "4fa3136e-dbb7-4d2f-a81b-e23f1c9d0af0",
+      "name": "HTTP Request",
+      "alwaysOutputData": true,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "response",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        0
+      ],
+      "id": "d369507f-19ee-47c2-9972-9822997b16ce",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "C:\\Users\\Amina\\Downloads\\Results\\summary.txt",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        0
+      ],
+      "id": "96af303b-5fb4-4d5e-b55f-ec48c62091ab",
+      "name": "Read/Write Files from Disk1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read/Write Files from Disk": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": -1
+  },
+  "versionId": "1baa4e10-010e-4920-b858-8c4fabc1bce7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6deef95e6921b5aac70d6309f5ad2d57304c11a8478e5201f1df9c53a0bab85b"
+  },
+  "id": "CMjkYNPHifd3pqvz",
+  "tags": []
+}
