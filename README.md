@@ -1,6 +1,6 @@
 # 🤖  Meeting Summarizer Agent
 
-Automated AI agent that processes meeting transcripts and generates summaries using n8n + Mistral :converts audio meetings → text transcripts → AI summaries using cutting-edge tools.
+Automated AI agent that processes meeting transcripts and generates summaries using n8n + Mistral.
 
 ## 🌟 Features
 - 🕒 Scheduled daily processing (12:05 PM)
