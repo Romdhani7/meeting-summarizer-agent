@@ -1,8 +1,6 @@
 # 🤖  Meeting Summarizer Agent
 
-![n8n Logo]([https://n8n.io/favicon-32x32.png](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsRhTSdAZKmzvK2LjW89xNj0ZwQrwio6cUUw&s)) ![Mistral Logo](https://www.3ds.com/assets/invest/2024-06/logo-mistral.png) ![Whisper.cpp Logo](https://miro.medium.com/v2/resize:fit:932/1*SCJBv1OX2plMgoNmcoxtcw.jpeg)
-
-Automated pipeline that converts audio meetings → text transcripts → AI summaries using cutting-edge tools.
+Automated AI agent that processes meeting transcripts and generates summaries using n8n + Mistral :converts audio meetings → text transcripts → AI summaries using cutting-edge tools.
 
 ## 🌟 Features
 - 🕒 Scheduled daily processing (12:05 PM)
