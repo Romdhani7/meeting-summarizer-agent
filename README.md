@@ -22,7 +22,7 @@ Automated AI agent that processes meeting transcripts and generates summaries us
 3. Add Mistral API key in n8n credentials  
 
 ## 📸 Screenshots  
-![Workflow](screenshots/workflow.png)  
+![Workflow](Workflow.png)  
 *n8n automation workflow*
 
 ## 📝 Usage  
