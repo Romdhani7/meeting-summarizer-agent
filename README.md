@@ -26,6 +26,6 @@ Automated AI agent that processes meeting transcripts and generates summaries us
 *n8n automation workflow*
 
 ## 📝 Usage  
-1. Upload meeting transcript (.txt)  
+1. Upload meeting transcript (.json)  
 2. Execute workflow  
 3. Find summary in `Results/` folder  
